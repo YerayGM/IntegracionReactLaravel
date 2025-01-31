@@ -12,8 +12,9 @@ class ProductSeeder extends Seeder
      * Run the database seeds.
      */
 
-    public function index()
-    {
-        return Product::paginate(12);
-    }
+     public function run()
+     {
+        Product::factory(50)->create();
+     }
+     
 }
