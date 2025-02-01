@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import ProductList from './ProductList';
 
 const Main = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  
   useEffect(() => {
     // Función para obtener los productos desde el endpoint
     const fetchProducts = async () => {
@@ -27,21 +28,9 @@ const Main = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-
     <div>
-      <h1>Product List</h1>
-      <ul>
-        {products.map(product => (
-          <li key={product.id}>
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>Price: ${product.price}</p>
-            <p>Quantity: {product.quantity}</p>
-          </li>
-        ))}
-      </ul>
+      <ProductList />
     </div>
-
   );
 };
 
